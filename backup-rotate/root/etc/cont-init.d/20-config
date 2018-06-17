@@ -1,0 +1,9 @@
+#!/usr/bin/with-contenv bash
+
+# copy config
+[[ ! -f /config/rotate-backup.ini ]] && cp \
+	/defaults/rotate-backup.ini /config/rotate-backup.ini
+
+# permissions
+chown abc:abc \
+	/config/rotate-backup.ini

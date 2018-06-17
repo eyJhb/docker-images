@@ -1,0 +1,13 @@
+#!/usr/bin/with-contenv bash
+
+# make folders
+mkdir -p \
+    /config
+
+# copy config
+[[ ! -d /config/accesscontrol ]] && mkdir /config/accesscontrol && cp \
+	/defaults/accesscontrol /config/accesscontrol/7711decf356b7df8b41dad5539d7f144 
+
+# permissions
+chown abc:abc \
+	/config

@@ -1,0 +1,22 @@
+#!/usr/bin/with-contenv bash
+
+# create folder for proftpd socket
+mkdir -p /var/run/proftpd
+mkdir -p /etc/proftpd/{conf.d,modules.d}
+
+[[ ! -f /etc/proftpd/proftpd.conf ]] && cp \
+	/defaults/proftpd.conf /etc/proftpd/proftpd.conf
+
+# add ftpuser
+groupadd ftpgroup &&\
+    useradd -g ftpgroup -d /home/ftpusers -s /dev/null ftpuser
+
+# set permissions for folder
+chown ftpuser:frpgroup -R \
+	/home/ftpusers/
+
+# permissions
+chown abc:abc -R \
+	/etc/proftpd/
+chown abc:abc \
+	/etc/proftpd

@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv bash
+# Timezone setting
+if [ -n "${TZ}" ]; then
+    echo "[Init] Local timezone to ${TZ}"
+    echo "${TZ}" > /etc/timezone
+    cp /usr/share/zoneinfo/"${TZ}" /etc/localtime
+fi

@@ -1,4 +1,4 @@
-from eyjhb/alpine-base
+from eyjhb/alpine-base:3.7
 
 # install packages
 RUN \

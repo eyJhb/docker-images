@@ -11,16 +11,7 @@ ENV PS1="$(whoami)@$(hostname):$(pwd)$ " \
 HOME="/root" \
 TERM="xterm"
 
-# add s6-overlay
-ADD https://github.com/just-containers/s6-overlay/releases/download/${OVERLAY_VERSION}/s6-overlay-${OVERLAY_ARCH}.tar.gz /tmp/
-RUN tar xzf /tmp/s6-overlay-${OVERLAY_ARCH}.tar.gz -C / && \
-    rm -r /tmp/s6-overlay-${OVERLAY_ARCH}.tar.gz
-
 RUN \
- echo "**** install build packages ****" && \
-#  apk add --no-cache --virtual=build-dependencies \
-#	curl \
-#	tar && \
  echo "**** install runtime packages ****" && \
  apk add --no-cache \
     netcat-openbsd \
@@ -37,11 +28,14 @@ RUN \
 	/app \
 	/config \
 	/defaults
-# echo "**** cleanup ****" && \
-# apk del --purge \
-#	build-dependencies && \
-# rm -rf \
-#	/tmp/*
+
+# add s6-overlay
+RUN wget https://github.com/just-containers/s6-overlay/releases/download/${OVERLAY_VERSION}/s6-overlay-${OVERLAY_ARCH}.tar.gz -O /tmp/s6-overlay.tar.gz && \
+    tar xzf /tmp/s6-overlay.tar.gz -C / && \
+    rm -r /tmp/s6-overlay.tar.gz
+
+RUN rm -rf \
+	/tmp/*
 
 # add local files
 COPY root/ /

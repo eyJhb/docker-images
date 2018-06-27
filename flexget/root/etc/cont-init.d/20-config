@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bash
 
 # copy config
-[[ ! -f /config/settings.json ]] && cp \
+[[ ! -f /config/settings.yml ]] && cp \
 	/defaults/config.yml /config/config.yml
 
 # permissions

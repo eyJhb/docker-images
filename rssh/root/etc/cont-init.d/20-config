@@ -1,0 +1,40 @@
+#!/usr/bin/with-contenv bash
+
+# check if ssh directory exists in config
+[[ ! -d /config/ssh ]] && mkdir /config/ssh && mv /etc/ssh/sshd_config /config/ssh 
+
+# remove default /etc/ssh config, as we should already have it
+rm -rf /etc/ssh
+
+# symbolic link ssh and config
+/bin/ln -s /config/ssh /etc/ssh
+
+# generate key files
+[[ ! -f /etc/ssh/ssh_host_rsa_key ]] && ssh-keygen -A
+
+# add backup user
+#/usr/sbin/adduser -h /home/rssh/ -s /usr/bin/rssh rssh -D 
+/usr/sbin/useradd -m -d /home/rssh/ -s /usr/bin/rssh rssh
+/usr/bin/passwd -d rssh
+
+# generate .ssh folder
+[[ ! -d /home/rssh/.ssh ]] && \
+    mkdir /home/rssh/.ssh
+
+[[ ! -f /config/authorized_keys ]] && echo "generating auth keys" && touch /config/authorized_keys
+/bin/cp /config/authorized_keys /home/rssh/.ssh/
+
+#always fix permissions at boot
+chown rssh:rssh -R /home/rssh
+chmod 700 -R /home/rssh/
+chmod 600 -R /home/rssh/.ssh/authorized_keys
+
+# place rssh config file
+[[ ! -f /etc/rssh.conf ]] && cp /defaults/rssh.conf /config/
+
+# symbolic link rssh.conf
+/bin/ln -s /config/rssh.conf /etc/rssh.conf
+
+# permissions
+chown abc:abc -R \
+	/config

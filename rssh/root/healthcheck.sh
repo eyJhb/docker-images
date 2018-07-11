@@ -2,5 +2,6 @@
 
 /bin/echo [HEALTHCHECK]
 
-/usr/bin/rotate-backups --dry-run -c /config/rotate-backup.ini
+/bin/echo -e "" | nc 127.0.0.1 22 | grep OpenSSH
+
 return $?

@@ -33,6 +33,7 @@ chmod 600 -R /home/rssh/.ssh/authorized_keys
 [[ ! -f /etc/rssh.conf ]] && cp /defaults/rssh.conf /config/
 
 # symbolic link rssh.conf
+rm /etc/rssh.conf
 /bin/ln -s /config/rssh.conf /etc/rssh.conf
 
 # permissions

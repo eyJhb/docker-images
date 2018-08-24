@@ -1,6 +1,10 @@
 # RSSH
 Simple container for [RSSH](http://www.pizzashack.org/rssh/).
 
+It creates a user `rssh`, which can be used to login and do various uploads.
+By default the password for `rssh` is disabled, so a `ssh key` is required.
+Place the public ssh key in `/config/authorized_keys`, and it will automatically be available to the user `rssh`.
+
 ```
   rssh:
     container_name: rssh

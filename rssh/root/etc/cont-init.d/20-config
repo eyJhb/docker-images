@@ -1,10 +1,10 @@
 #!/usr/bin/with-contenv bash
 
 # check if ssh directory exists in config
-[[ ! -d /config/ssh ]] && mkdir /config/ssh && mv /etc/ssh/sshd_config /config/ssh 
+[[ ! -d /config/ssh ]] && mv /etc/ssh /config/ssh 
 
-# remove default /etc/ssh config, as we should already have it
-rm -rf /etc/ssh
+# remove /etc/ssh folder to allow us to symbolic link
+[[ -d /etc/ssh ]] && rm -rf /etc/ssh
 
 # symbolic link ssh and config
 /bin/ln -s /config/ssh /etc/ssh
@@ -30,10 +30,9 @@ chmod 700 -R /home/rssh/
 chmod 600 -R /home/rssh/.ssh/authorized_keys
 
 # place rssh config file
-[[ ! -f /etc/rssh.conf ]] && cp /defaults/rssh.conf /config/
+[[ ! -f /config/rssh.conf ]] && cp /defaults/rssh.conf /config/
 
 # symbolic link rssh.conf
-rm /etc/rssh.conf
 /bin/ln -s /config/rssh.conf /etc/rssh.conf
 
 # permissions

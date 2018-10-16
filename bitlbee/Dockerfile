@@ -4,7 +4,7 @@ FROM debian:stretch
 LABEL maintainer="eyJhb <eyjhb@gmail.com>"
 
 # envs
-ENV bitlbee_port=6680
+ENV BITLBEEPORT=6680
 
 # install packages
 RUN \
@@ -12,11 +12,11 @@ RUN \
     apt-get install -y --no-install-recommends \
     bitlbee-libpurple
 
+# copy stuff
+COPY root/ /
+
 # ports and volumes
 EXPOSE 6680
-
-# copy stuff
-copy root/ /
 
 # expose volumes
 VOLUME ["/config"]

@@ -15,4 +15,4 @@ ln -s /config /etc/bitlbee
 
 echo "[BITLBEE] Starting process"
 # start bitlbee
-bitlbee -F -n -p $bitlbee_port
+bitlbee -F -n -p $BITLBEEPORT

@@ -7,5 +7,4 @@
 0       5       1       *       *       run-parts /etc/periodic/monthly
 
 # run hourly backup rotate
-# 0 */6 * * * /usr/bin/gplaycli -c /config/gplaycli.conf -f /data/ -F /config/apks.txt -av -v
-* */6 * * * /usr/bin/gplaycli -c /config/gplaycli.conf -f /data/ -F /config/apks.txt -av -v
+0 */6 * * * /usr/bin/gplaycli -c /config/gplaycli.conf -f /data/ -F /config/apks.txt -av -v

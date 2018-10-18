@@ -4,10 +4,10 @@ LABEL maintainer="eyJhb <eyjhb@gmail.com>"
 
 # install packages
 RUN \
-  apk add --no-cache \
-    python3 python3-dev alpine-sdk libffi-dev openssl-dev libxml2-dev libxslt-dev && \
+    apk add --no-cache \
+        python3 python3-dev alpine-sdk libffi-dev openssl-dev libxml2-dev libxslt-dev && \
     python3 -m ensurepip && \
-    python3 -m pip install gplaycli && \
+    python3 -m pip --no-cache-dir install gplaycli && \
     rm -r /root/.cache && \
     rm -r /usr/lib/python*/ensurepip
 

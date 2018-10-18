@@ -4,9 +4,13 @@ It reads the APKs you want from a list `/config/apks.txt`, and then outputs them
 
 It has a default config file, which is located in `/config/gplaycli.conf`.
 
+# command to run
+
 ```
 docker run --rm -it -v $(pwd)/config:/config -v $(pwd)/data:/data eyjhb/apk-tracker
 ```
+
+# apks.txt
 
 `/config/apks.txt`
 

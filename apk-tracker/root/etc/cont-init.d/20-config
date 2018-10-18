@@ -1,0 +1,9 @@
+#!/usr/bin/with-contenv bash
+
+# copy config
+[[ ! -f /config/gplaycli.conf ]] && cp \
+	/defaults/gplaycli.conf /config/gplaycli.conf
+
+# permissions
+chown abc:abc \
+	/config/gplaycli.conf

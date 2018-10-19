@@ -1,0 +1,9 @@
+#!/usr/bin/with-contenv bash
+
+# copy config
+[[ ! -f /config/bitlbee.conf ]] && cp \
+    -R /etc/bitlbee/* /config/
+
+# permissions
+chown abc:abc -R \
+	/config/ \

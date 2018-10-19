@@ -1,0 +1,5 @@
+#!/usr/bin/with-contenv bash
+
+exec \
+	s6-setuidgid abc /usr/bin/bitlbee \
+    -P /tmp/bitlbee.pid -F -n -c /config/bitlbee.conf -d /config/user-conf/

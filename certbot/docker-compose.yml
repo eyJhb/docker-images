@@ -1,0 +1,13 @@
+version: "3"
+services:
+  certbot:
+    container_name: certbot
+    image: eyjhb/certbot:v0.26.0
+    restart: always
+    volumes:
+      - /scratch/docker/certbot/certs/:/etc/letsencrypt 
+    environment:
+      - CERT_EMAIL=email@email.dk
+      - CERT_DOMAINS=my-domain.dk
+      - CLOUDFLARE_EMAIL=cloud@email.dk
+      - CLOUDFLARE_API_KEY=removed

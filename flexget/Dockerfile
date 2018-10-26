@@ -1,11 +1,16 @@
-from eyjhb/alpine-base:3.7
+FROM eyjhb/alpine-base:3.7
+
+LABEL maintainer="eyJhb <eyjhbb@gmail.com>"
+
+ENV VERSION 1.0
+ENV APP_VERSION 2.17.5
 
 # install packages
 RUN \
   apk add --no-cache \
     python3 && \
     python3 -m ensurepip && \
-    python3 -m pip install flexget transmissionrpc && \
+    python3 -m pip install flexget==$APP_VERSION transmissionrpc && \
     rm -r /root/.cache && \
     rm -r /usr/lib/python*/ensurepip
 

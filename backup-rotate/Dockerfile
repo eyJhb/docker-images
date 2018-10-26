@@ -1,12 +1,17 @@
-from eyjhb/alpine-base:3.7
+FROM eyjhb/alpine-base:3.7
+
+LABEL maintainer="eyJhb <eyjhbb@gmail.com>"
+
+ENV VERSION 1.0
+ENV APP_VERSION 6.0
 
 # install packages
 RUN \
   apk add --no-cache \
     rsyslog \
-    python && \
-    python -m ensurepip && \
-    python -m pip install rotate-backups && \
+    python3 && \
+    python3 -m ensurepip && \
+    python3 -m pip install --no-cache-dir rotate-backups==$APP_VERSION && \
     rm -r /root/.cache && \
     rm -r /usr/lib/python*/ensurepip
 

@@ -1,9 +1,14 @@
-from eyjhb/alpine-base:3.7
+FROM eyjhb/alpine-base:3.7
+
+LABEL maintainer="eyJhb <eyjhbb@gmail.com>"
+
+ENV VERSION 1.0
+ENV APP_VERSION 4.2.4-r0
 
 # install packages
 RUN \
   apk add --no-cache \
-	tvheadend \
+	tvheadend=$APP_VERSION \
 	tvheadend-dvb-scan \
     ffmpeg
 

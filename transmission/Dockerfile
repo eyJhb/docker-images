@@ -1,10 +1,15 @@
-from eyjhb/alpine-base:3.7
+FROM eyjhb/alpine-base:3.7
+
+LABEL maintainer="eyJhb <eyjhbb@gmail.com>"
+
+ENV VERSION 1.0
+ENV APP_VERSION 2.92-r8
 
 # install packages
 RUN \
   apk add --no-cache \
-	transmission-cli \
-	transmission-daemon
+	transmission-cli=$APP_VERSION \
+	transmission-daemon=$APP_VERSION
 
 # copy root directories
 COPY root/ /

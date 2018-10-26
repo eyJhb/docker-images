@@ -1,12 +1,13 @@
 FROM alpine:3.8
 
 # label
-LABEL maintainer="eyJhb <eyjhb@gmail.com>"
+LABEL maintainer="eyJhb <eyjhbb@gmail.com>"
 
-ARG bitlbee_version=3.5.1
-ARG discord_version=0.4.1
-ARG slack_version=39c7b5bc45beb622d61555630bc741322b1aa920
-ARG facebook_version=v1.1.2
+ENV VERSION 1.0
+ENV BITLBEE_VERSION 3.5.1
+ENV DISCORD_VERSION 0.4.1
+ENV SLACK_VERSION 39c7b5bc45beb622d61555630bc741322b1aa920
+ENV FACEBOOK_VERSION v1.1.2
 
 # envs
 ENV BITLBEEPORT=6680
@@ -23,7 +24,7 @@ WORKDIR /tmp
 RUN \
     git clone https://github.com/bitlbee/bitlbee.git && \
     cd bitlbee && \
-    git checkout tags/$bitlbee_version && \
+    git checkout tags/$BITLBEE_VERSION && \
     ./configure --prefix=/usr --etcdir=/etc/bitlbee --otr=1 --purple=1  && \
     make && \
     make install-dev
@@ -32,7 +33,7 @@ RUN \
 RUN \
     git clone https://github.com/dylex/slack-libpurple.git && \
     cd slack-libpurple && \
-    git checkout $slack_version && \
+    git checkout $SLACK_VERSION && \
     make
 
 # facebook
@@ -40,7 +41,7 @@ RUN \
     export PKG_CONFIG_PATH=/lib/pkgconfig/ && \
     git clone https://github.com/bitlbee/bitlbee-facebook.git && \
     cd bitlbee-facebook && \
-    git checkout tags/$facebook_version && \
+    git checkout tags/$FACEBOOK_VERSION && \
     ./autogen.sh && \
     make
 
@@ -49,7 +50,7 @@ RUN \
     export PKG_CONFIG_PATH=/lib/pkgconfig/ && \
     git clone https://github.com/sm00th/bitlbee-discord.git && \
     cd bitlbee-discord && \
-    git checkout tags/$discord_version && \
+    git checkout tags/$DISCORD_VERSION && \
     ./autogen.sh && \
     ./configure && \
     make

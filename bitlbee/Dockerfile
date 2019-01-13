@@ -3,11 +3,11 @@ FROM alpine:3.8
 # label
 LABEL maintainer="eyJhb <eyjhbb@gmail.com>"
 
-ENV VERSION 1.0
+ENV VERSION 1.1
 ENV BITLBEE_VERSION 3.5.1
 ENV DISCORD_VERSION 0.4.1
 ENV SLACK_VERSION 39c7b5bc45beb622d61555630bc741322b1aa920
-ENV FACEBOOK_VERSION v1.1.2
+ENV FACEBOOK_VERSION 7682a3560c737fbbbd7cdf7a5b640bfb3242ec3c
 
 # envs
 ENV BITLBEEPORT=6680
@@ -41,7 +41,7 @@ RUN \
     export PKG_CONFIG_PATH=/lib/pkgconfig/ && \
     git clone https://github.com/bitlbee/bitlbee-facebook.git && \
     cd bitlbee-facebook && \
-    git checkout tags/$FACEBOOK_VERSION && \
+    git checkout $FACEBOOK_VERSION && \
     ./autogen.sh && \
     make
 

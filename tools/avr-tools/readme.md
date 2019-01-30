@@ -21,4 +21,4 @@ not be required for you, as long as you map your programmer using `-v`.
 
 # Source
 The source for this Docker Image can be found at
-(https://github.com/eyJhb/docker-images/tree/master/tools/avr-tools)[https://github.com/eyJhb/docker-images/tree/master/tools/avr-tools]
+[https://github.com/eyJhb/docker-images/tree/master/tools/avr-tools](https://github.com/eyJhb/docker-images/tree/master/tools/avr-tools)

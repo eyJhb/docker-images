@@ -1,0 +1,2 @@
+# run hourly backup rotate
+*/1 * * * * /update-healthcheck.sh

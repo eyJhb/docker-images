@@ -63,7 +63,4 @@ docker run --rm -it --privileged \
 - [Docker Hub](https://hub.docker.com/r/eyjhb/android-re)
 
 # TODO
-
-- Add procyon (decompile dex to .java files), sometimes better than dex2jar
-    - https://bitbucket.org/mstrobel/procyon/downloads/procyon-decompiler-0.5.30.jar
 - Add gplaycli for downloading apks

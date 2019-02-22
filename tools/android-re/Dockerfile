@@ -7,9 +7,11 @@ ENV VERSION 1.0
 ENV ANDROID_PLATFORM_TOOLS_VERSION r28.0.1
 ENV APKTOOL_VERSION 2.3.4
 ENV D2J_VERSION 2.0
+ENV PROCYON_VERSION 0.5.30
 ENV PATH "$PATH:/opt/android/platform-tools/"
-ENV PATH "$PATH:/opt/d2j"
 ENV PATH "$PATH:/opt/apktool"
+ENV PATH "$PATH:/opt/d2j"
+ENV PATH "$PATH:/opt/procyon"
 ENV PATH "$PATH:/opt/scripts"
 
 RUN \
@@ -35,6 +37,13 @@ RUN \
     rm -rf /opt/d2j/dex2jar-${D2J_VERSION}/ && \
     rm /opt/d2j/*.bat && \
     chmod +x /opt/d2j/* && \
+    # procyon-decompiler
+    mkdir /opt/procyon && \
+    wget https://bitbucket.org/mstrobel/procyon/downloads/procyon-decompiler-${PROCYON_VERSION}.jar -O /opt/procyon/procyon.jar && \
+    # we are just using the same wrapper from apktool for procyon!
+    wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool -O /opt/procyon/procyon && \
+    sed -i s/apktool/procyon/g /opt/procyon/procyon && \
+    chmod +x /opt/procyon/procyon && \
     # cleanup
     rm /tmp/* | true && \
     rm -rf /var/lib/apt/lists/*

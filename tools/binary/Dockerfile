@@ -9,8 +9,8 @@ RUN \
     apt-get update && \
     apt-get install -y \
     binutils gcc-multilib strace \
-    gdb-multiarch git \
-    socat procps \
+    gdb-multiarch gdbserver git \
+    socat netcat procps \
     python python-pip && \
     pip install pwn && \
     git clone https://github.com/longld/peda.git ~/peda && \

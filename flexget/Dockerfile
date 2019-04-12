@@ -3,7 +3,7 @@ FROM eyjhb/alpine-base:3.7
 LABEL maintainer="eyJhb <eyjhbb@gmail.com>"
 
 ENV VERSION 1.0
-ENV APP_VERSION 2.17.5
+ENV APP_VERSION 2.20.17
 
 # install packages
 RUN \

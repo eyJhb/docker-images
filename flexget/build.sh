@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 DOCKER_USER="eyjhb"
 DOCKER_NAME="flexget"

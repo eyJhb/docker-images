@@ -13,3 +13,8 @@ docker run --rm -it \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     eyjhb/opencv:latest bash
 ```
+
+# Links
+
+- [Github](https://github.com/eyJhb/docker-images/tree/master/tools/opencv)
+- [Docker Hub](https://hub.docker.com/r/eyjhb/opencv)

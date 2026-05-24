@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:bullseye
 
 LABEL maintainer="eyJhb <eyjhbb@gmail.com>"
 
@@ -16,7 +16,7 @@ RUN apt-get update && \
     rm -rf /tmp/* 
 
 # trust everything
-RUN sed -i 's/jdk.jar.disabledAlgorithms=.*/jdk.jar.disabledAlgorithms=/g' /etc/java-8-openjdk/security/java.security
+RUN sed -i 's/jdk.jar.disabledAlgorithms=.*/jdk.jar.disabledAlgorithms=/g' /etc/java-11-openjdk/security/java.security
 
 WORKDIR /src
 

@@ -38,12 +38,12 @@ RUN \
     rm /opt/d2j/*.bat && \
     chmod +x /opt/d2j/* && \
     # procyon-decompiler
-    mkdir /opt/procyon && \
-    wget https://bitbucket.org/mstrobel/procyon/downloads/procyon-decompiler-${PROCYON_VERSION}.jar -O /opt/procyon/procyon.jar && \
-    # we are just using the same wrapper from apktool for procyon!
-    wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool -O /opt/procyon/procyon && \
-    sed -i s/apktool/procyon/g /opt/procyon/procyon && \
-    chmod +x /opt/procyon/procyon && \
+    # mkdir /opt/procyon && \
+    # wget https://bitbucket.org/mstrobel/procyon/downloads/procyon-decompiler-${PROCYON_VERSION}.jar -O /opt/procyon/procyon.jar && \
+    # # we are just using the same wrapper from apktool for procyon!
+    # wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool -O /opt/procyon/procyon && \
+    # sed -i s/apktool/procyon/g /opt/procyon/procyon && \
+    # chmod +x /opt/procyon/procyon && \
     # cleanup
     rm /tmp/* | true && \
     rm -rf /var/lib/apt/lists/*

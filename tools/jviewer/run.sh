@@ -5,4 +5,4 @@ docker run --rm -it \
     -v $HOME:/src \
     -v $HOME/.Xauthority:/root/.Xauthority:rw \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
-    icedtea-trust bash
+    eyjhb/icedtea-trust bash

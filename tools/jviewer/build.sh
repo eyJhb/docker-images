@@ -11,5 +11,5 @@ docker build -t $DOCKER_USER/$DOCKER_NAME:latest .
 docker build -t $DOCKER_USER/$DOCKER_NAME:$VERSION .
 
 # push the images
-docker push $DOCKER_USER/$DOCKER_NAME:latest
-docker push $DOCKER_USER/$DOCKER_NAME:$VERSION
+# docker push $DOCKER_USER/$DOCKER_NAME:latest
+# docker push $DOCKER_USER/$DOCKER_NAME:$VERSION
